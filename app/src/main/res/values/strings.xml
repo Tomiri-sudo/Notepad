@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">Notepad</string>
+    <string name="m1">Start writing here...</string>
+    <string name="cta1">Save Note</string>
+    <string name="m2">Note saved</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="cta2">New Note</string>
+    <string name="cta3">Save Note As</string>
+    <string name="cta4">Open Note</string>
+    <string name="cta5">Delete Current Note</string>
+    <string name="cta6">Change Note Color</string>
+    <string name="c1">Red</string>
+    <string name="c2">Blue</string>
+    <string name="c3">Green</string>
+    <string name="c4">Yellow</string>
+    <string name="cta7">Yes</string>
+    <string name="cta8">No</string>
+    <string name="e1">Failed to save: %1$s</string>
+    <string name="m3">Saved \'%1$s\'</string>
+    <string name="e2">No note to delete.</string>
+    <string name="cta9">Delete \'%1$s\'?</string>
+    <string name="m4">Deleted \'%1$s\'</string>
+    <string name="m5">No saved notes found.</string>
+    <string name="m6">Loaded \'%1$s\'</string>
+    <string name="m7">New Note Name</string>
+    <string name="m8">New note \'%1$s\' started.</string>
+    <string name="m9">Restored last note: \'%1$s\'</string>
+    <string name="cta10">Share</string>
+    <string name="cta11">Settings</string>
+    <string name="e3">note is empty and not shareable</string>
+    <string name="m10">settings</string>
+    <string name="m12">save settings</string>
+    <string name="dst1" translatable="false">16sp</string>
+    <string name="m13">text size</string>
+    <string name="m14">font style</string>
+    <string name="e4">Error loading \'%1$s\': %2$s</string>
+    <string name="m15">Current note</string>
+    <string name="m16">New note \'%1$s\' started.</string>
+    <string name="e5">Name can\'t be empty.</string>
+    <string name="cta16">Cancel</string>
+    <string name="cta15">OK</string>
+    <string name="cta13">Load Note</string>
+    <string name="cta12">Change Icon</string>
+    <string name="e6">No note to personalize!</string>
+    <string name="e7">No notes to display... Create a new note to start!</string>
+    <string name="cta14">Choose a Language</string>
+
+</resources>
