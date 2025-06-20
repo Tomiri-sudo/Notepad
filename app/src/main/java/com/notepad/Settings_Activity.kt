@@ -32,8 +32,6 @@ class SettingsActivity : AppCompatActivity() {
         val currentSize = prefs.getFloat(KEY_FONT_SIZE, 16f)
 
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, fontNames)
-        binding.fontSpinner.adapter = adapter
-        binding.fontSpinner.setSelection(fonts.indexOf(currentFont))
 
         binding.sizeSeekbar.progress = currentSize.toInt()
         binding.sizeValue.text = currentSize.toInt().toString()
@@ -48,11 +46,9 @@ class SettingsActivity : AppCompatActivity() {
         })
 
         binding.saveButton.setOnClickListener {
-            val selectedFont = fonts[binding.fontSpinner.selectedItemPosition]
             val selectedSize = binding.sizeSeekbar.progress.toFloat()
 
             prefs.edit()
-                .putString(KEY_FONT, selectedFont)
                 .putFloat(KEY_FONT_SIZE, selectedSize)
                 .apply()
 

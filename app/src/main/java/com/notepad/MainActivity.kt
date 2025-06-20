@@ -102,7 +102,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         updateEmptyStateVisibility()
         applyUserTextStyle()
-        applyFontToNavigationView()
 
         scaleGestureDetector = ScaleGestureDetector(this, object : ScaleGestureDetector.SimpleOnScaleGestureListener() {
             override fun onScale(detector: ScaleGestureDetector): Boolean {
@@ -408,31 +407,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private fun applyUserTextStyle() {
         val prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
         val size = prefs.getFloat("font_size", 16f)
-        val locale = resources.configuration.locales[0]
-
-        val fontRes = when (locale.language) {
-            "it" -> R.font.archivo_bold
-            "en" -> R.font.archivo_bold
-            "ar" -> R.font.noto_sans_arabic_bold
-            "ru" -> R.font.archivo_bold
-            "zh" -> R.font.noto_sans_sc_bold
-            "ko" -> R.font.noto_sans_kr_bold
-            "hi" -> R.font.noto_sans_devanagari_bold
-            else -> R.font.archivo_narrow_bold
-        }
-
-        try {
-            val typeface = ResourcesCompat.getFont(this, fontRes)
-            if (typeface != null) {
-                binding.noteEditText.typeface = typeface
-                binding.emptyStateView.typeface = typeface
-            }
-        } catch (e: Resources.NotFoundException) {
-            showToast("Font missing: ${e.message}")
-        }
 
         binding.noteEditText.textSize = size
+        binding.emptyStateView.textSize = size
+
+        // Optional: reset typeface to default
+        binding.noteEditText.typeface = Typeface.DEFAULT
+        binding.emptyStateView.typeface = Typeface.DEFAULT
     }
+
 
 
     private fun showIconPicker(onIconSelected: (String) -> Unit) {
@@ -501,33 +484,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             val color = last?.let { prefs.getInt(colorKeyFor(it), getColor(R.color.noteColorBlue)) }
                 ?: getColor(R.color.noteColorBlue)
             binding.emptyStateView.setTextColor(color)
-        }
-    }
-
-    private fun applyFontToNavigationView() {
-        val navMenu = binding.navigationView.menu
-        val locale = resources.configuration.locales[0]
-
-        val fontRes = when (locale.language) {
-            "it", "en", "ru" -> R.font.archivo_bold
-            "ar" -> R.font.noto_sans_arabic_bold
-            "zh" -> R.font.noto_sans_sc_bold
-            "ko" -> R.font.noto_sans_kr_bold
-            "hi" -> R.font.noto_sans_devanagari_bold
-            else -> R.font.archivo_bold
-        }
-        val isRTL = locale.language == "ar"
-        binding.noteEditText.textDirection = if (isRTL) View.TEXT_DIRECTION_RTL else View.TEXT_DIRECTION_LTR
-
-
-        val typeface = ResourcesCompat.getFont(this, fontRes)
-        if (typeface != null) {
-            for (i in 0 until navMenu.size()) {
-                val item = navMenu.getItem(i)
-                val span = SpannableString(item.title)
-                span.setSpan(CustomTypefaceSpan(typeface), 0, span.length, Spanned.SPAN_INCLUSIVE_INCLUSIVE)
-                item.title = span
-            }
         }
     }
 

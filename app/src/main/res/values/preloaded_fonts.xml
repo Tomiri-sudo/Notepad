@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
-        <item>@font/archivo_black</item>
-        <item>@font/archivo_bold</item>
-        <item>@font/archivo_narrow_bold</item>
-        <item>@font/noto_sans_arabic_bold</item>
-        <item>@font/noto_sans_devanagari_bold</item>
-        <item>@font/noto_sans_kr_bold</item>
-        <item>@font/noto_sans_sc_bold</item>
     </array>
 </resources>
